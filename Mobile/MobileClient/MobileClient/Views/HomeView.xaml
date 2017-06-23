@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="{Binding Title}"
+             x:Class="MobileClient.Views.HomeView">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding DocumentsList}" HasUnevenRows="true" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <StackLayout VerticalOptions="Center" Margin="15,5">
+                                    <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Url}" FontSize="Small"/>
+                                </StackLayout>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Button Image="ic_arrow_downward_black_24dp.png" BackgroundColor="Transparent" x:Name="btnDownload" Clicked="btnDownload_Clicked"/>
+                            </Grid>
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
